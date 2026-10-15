@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -7,6 +8,9 @@ const authRoutes = require("./routes/authRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+const aiRoutes = require("./routes/aiRoutes");
+const shippingRoutes = require("./routes/shippingRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -32,6 +36,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api/ai", aiRoutes);
+app.use("/api/shipping", shippingRoutes);
 
 // 5. Bắt lỗi 404
 app.use((req, res) => {
